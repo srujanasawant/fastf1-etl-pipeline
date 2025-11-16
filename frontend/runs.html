@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ETL Runs — Dynamic F1 ETL</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-blush">
+  <header class="topbar">
+    <div class="brand"><div class="logo-circle">⚙️</div><div><h1 class="brand-title">ETL Runs</h1><p class="brand-sub">History of ETL executions</p></div></div>
+    <nav class="nav">
+      <a href="http://127.0.0.1:5500/index.html" class="nav-link">Home</a>
+      <a href="http://127.0.0.1:5500/sessions.html" class="nav-link">Sessions</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <p class="muted">This page expects an endpoint you can add for listing ETL runs. For now it will attempt to fetch <code>http://127.0.0.1:8001/etl/runs</code>. If you don't have it, you'll see an error — but the UI will still load.</p>
+      <div id="runs-list" class="raw-list">Loading...</div>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>window.frontendBase="http://127.0.0.1:5500"; window.apiBase="http://127.0.0.1:8002"; initRuns();</script>
+</body>
+</html>

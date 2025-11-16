@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic F1 ETL — Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-blush">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-circle">🏁</div>
+      <div>
+        <h1 class="brand-title">Dynamic F1 ETL</h1>
+        <p class="brand-sub">Ferrari-blush: schema drift & session explorer</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="http://127.0.0.1:5500/index.html" class="nav-link">Home</a>
+      <a href="http://127.0.0.1:5500/sessions.html" class="nav-link">Sessions</a>
+      <a href="http://127.0.0.1:5500/drift.html" class="nav-link">Drift</a>
+      <a href="http://127.0.0.1:5500/raw.html" class="nav-link">Raw Docs</a>
+      <a href="http://127.0.0.1:5500/runs.html" class="nav-link">ETL Runs</a>
+      <a href="http://127.0.0.1:5500/compare.html" class="nav-link">Compare</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div class="hero-left">
+        <h2>Turn chaotic scraped data into pretty, auditable datasets</h2>
+        <p class="muted">Schema generation, structural drift detection and easy per-session exploration — served with an aesthetic Ferrari-blush theme.</p>
+
+        <div class="cta-row">
+          <a class="btn-primary" href="http://127.0.0.1:5500/sessions.html">Explore Sessions</a>
+          <a class="btn-ghost" href="http://127.0.0.1:5500/drift.html">View Schema Drift</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card small summary">
+          <h3 id="summary-sources">Sources</h3>
+          <p id="summary-sources-val">loading...</p>
+        </div>
+
+        <div class="card small summary">
+          <h3 id="summary-schemas">Schemas</h3>
+          <p id="summary-schemas-val">loading...</p>
+        </div>
+
+        <div class="card small summary">
+          <h3 id="summary-runs">ETL Runs</h3>
+          <p id="summary-runs-val">Open ETL Runs</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card quick-help">
+      <h3>Quick notes</h3>
+      <ul>
+        <li>Serve this folder with <code>python -m http.server 5500</code>.</li>
+        <li>Backend assumed at <code>http://127.0.0.1:8001</code> for schema endpoints.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>window.frontendBase = "http://127.0.0.1:5500"; window.apiBase = "http://127.0.0.1:8002"; initHome();</script>
+</body>
+</html>

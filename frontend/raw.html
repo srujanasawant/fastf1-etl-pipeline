@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raw Docs — Dynamic F1 ETL</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-blush">
+  <header class="topbar">
+    <div class="brand"><div class="logo-circle">📦</div><div><h1 class="brand-title">Raw Documents</h1><p class="brand-sub">View raw payloads stored in MongoDB</p></div></div>
+    <nav class="nav">
+      <a href="http://127.0.0.1:5500/index.html" class="nav-link">Home</a>
+      <a href="http://127.0.0.1:5500/sessions.html" class="nav-link">Sessions</a>
+      <a href="http://127.0.0.1:5500/drift.html" class="nav-link">Drift</a>
+      <a href="http://127.0.0.1:5500/raw.html" class="nav-link">Raw Docs</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="form-row">
+        <label>Source
+          <input id="raw-source" placeholder="fastf1-r or fastf1-session" />
+        </label>
+        <label>Schema ID (optional)
+          <input id="raw-schemaid" placeholder="schema id to filter (optional)" />
+        </label>
+        <button class="btn-primary" id="btn-list-raw">List</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Raw docs</h3>
+      <div id="raw-list" class="raw-list">No results yet</div>
+    </section>
+
+    <section class="card">
+      <h3>Selected document</h3>
+      <pre id="raw-doc" class="raw-doc">—</pre>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>window.frontendBase="http://127.0.0.1:5500"; window.apiBase="http://127.0.0.1:8002"; initRaw();</script>
+</body>
+</html>

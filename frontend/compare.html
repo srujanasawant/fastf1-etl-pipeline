@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Compare Sessions — Dynamic F1 ETL</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-blush">
+  <header class="topbar">
+    <div class="brand"><div class="logo-circle">🔀</div><div><h1 class="brand-title">Compare Sessions</h1><p class="brand-sub">Quick differences between two sessions</p></div></div>
+    <nav class="nav">
+      <a href="http://127.0.0.1:5500/index.html" class="nav-link">Home</a>
+      <a href="http://127.0.0.1:5500/sessions.html" class="nav-link">Sessions</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="form-row grid-2">
+        <div>
+          <h4>Session A</h4>
+          <label>Year <input id="cmp-a-year" /></label>
+          <label>Race <input id="cmp-a-race" /></label>
+          <label>Session <input id="cmp-a-session" /></label>
+        </div>
+        <div>
+          <h4>Session B</h4>
+          <label>Year <input id="cmp-b-year" /></label>
+          <label>Race <input id="cmp-b-race" /></label>
+          <label>Session <input id="cmp-b-session" /></label>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <button id="btn-compare-sessions" class="btn-primary">Compare Sessions</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Comparison Summary</h3>
+      <div id="compare-summary">No comparison yet</div>
+    </section>
+
+    <section class="card">
+      <h3>Field-level differences</h3>
+      <pre id="compare-details" class="raw-diff">—</pre>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>window.frontendBase="http://127.0.0.1:5500"; window.apiBase="http://127.0.0.1:8002"; initCompare();</script>
+</body>
+</html>

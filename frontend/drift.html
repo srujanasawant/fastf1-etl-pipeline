@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Schema Drift — Dynamic F1 ETL</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-blush">
+  <header class="topbar">
+    <div class="brand"><div class="logo-circle">🏁</div><div><h1 class="brand-title">Schema Drift</h1><p class="brand-sub">Summarized, meaningful diffs</p></div></div>
+    <nav class="nav">
+      <a href="http://127.0.0.1:5500/index.html" class="nav-link">Home</a>
+      <a href="http://127.0.0.1:5500/sessions.html" class="nav-link">Sessions</a>
+      <a href="http://127.0.0.1:5500/drift.html" class="nav-link">Drift</a>
+      <a href="http://127.0.0.1:5500/raw.html" class="nav-link">Raw Docs</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="form-row">
+        <label>Source
+          <select id="sel-source"></select>
+        </label>
+        <label>Version A
+          <select id="sel-v1"></select>
+        </label>
+        <label>Version B
+          <select id="sel-v2"></select>
+        </label>
+        <button class="btn-primary" id="btn-diff">Compare</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Compact Diff Summary</h3>
+      <div id="diff-summary" class="diff-summary">Choose versions and click Compare</div>
+    </section>
+
+    <section class="card">
+      <h3>Significant metrics</h3>
+      <div id="significant-metrics" class="grid-3"></div>
+    </section>
+
+    <section class="card">
+      <h3>Full (raw) diff</h3>
+      <pre id="raw-diff" class="raw-diff">—</pre>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>window.frontendBase="http://127.0.0.1:5500"; window.apiBase="http://127.0.0.1:8002"; initDrift();</script>
+</body>
+</html>

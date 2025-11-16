@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sessions — Dynamic F1 ETL</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-blush">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-circle">🏁</div>
+      <div>
+        <h1 class="brand-title">Sessions</h1>
+        <p class="brand-sub">Load laps, weather, results — choose year & race</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="http://127.0.0.1:5500/index.html" class="nav-link">Home</a>
+      <a href="http://127.0.0.1:5500/sessions.html" class="nav-link">Sessions</a>
+      <a href="http://127.0.0.1:5500/drift.html" class="nav-link">Drift</a>
+      <a href="http://127.0.0.1:5500/raw.html" class="nav-link">Raw Docs</a>
+      <a href="http://127.0.0.1:5500/runs.html" class="nav-link">ETL Runs</a>
+      <a href="http://127.0.0.1:5500/compare.html" class="nav-link">Compare</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="form-row">
+        <label>Year
+          <select id="sel-year"></select>
+        </label>
+
+        <label>Race
+          <input id="inp-race" placeholder="Bahrain Grand Prix" />
+        </label>
+
+        <label>Session
+          <select id="sel-session">
+            <option>FP1</option><option>FP2</option><option>FP3</option>
+            <option>Q</option><option>SQ</option><option>R</option>
+          </select>
+        </label>
+
+        <button class="btn-primary" id="btn-load-session">Load</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Session Summary</h3>
+      <div id="session-cards" class="grid-3"></div>
+    </section>
+
+    <section class="card">
+      <h3>Laps (preview)</h3>
+      <div id="laps-table" class="table-scroll">Loading...</div>
+    </section>
+
+    <section class="card small">
+      <h3>Weather (preview)</h3>
+      <div id="weather-table" class="table-scroll">Loading...</div>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    window.frontendBase = "http://127.0.0.1:5500";
+    window.apiBase = "http://127.0.0.1:8002";
+    initSessions();
+  </script>
+</body>
+</html>
